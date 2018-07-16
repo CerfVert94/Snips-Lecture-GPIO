@@ -23,9 +23,9 @@ def intent_received(hermes, intent_message):
 	# Probability thresold should reach 0.9. Otherwise, it's an unknown command
 	if intentName == 'Letmeknow:Lire' :
 		if probability > 0.5 :
-			sentence = str(OPiGPIO.read_gpio(gpio_pin_num))
+			sentence = OPiGPIO.read_gpio(gpio_pin_num)
 		else :
-			sentence = " Je n'ai pas compris"
+			sentence = " Je n'ai pas compris " + str(probability)
 	OPiGPIO.gpio_unexport(gpio_pin_num)
 	hermes.publish_end_session(intent_message.session_id, sentence)
 with Hermes(MQTT_ADDR) as h:

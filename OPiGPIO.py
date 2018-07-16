@@ -136,7 +136,7 @@ def read_gpio(gpio_pin_num) :
 		value = os.read(gpio_pin, 1)
 		os.close(gpio_pin)
 		return value
-	return 2
+	return '2'
 
 def gpio_on(gpio_pin_num) :
 	"""
